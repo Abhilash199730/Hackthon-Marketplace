@@ -7,6 +7,7 @@ import Register from './pages/Register'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
 import Success from './pages/Success'
+import Artisan from './pages/Artisan'
 
 import './App.css'
 
@@ -76,7 +77,9 @@ function Home({ cart, setCart }) {
 
         <div className="nav-links">
 
-          <a href="#home">Home</a>
+          <a href="#home">
+            Home
+          </a>
 
           <a href="#products">
             Products
@@ -151,23 +154,19 @@ function Home({ cart, setCart }) {
 
 
           <h1>
-
             Discover the beauty of
 
             <span>
               handmade products.
             </span>
-
           </h1>
 
 
           <p className="hero-text">
-
             Explore unique creations made by
             talented local artisans.
             Support small businesses and
             bring something special home.
-
           </p>
 
 
@@ -181,10 +180,13 @@ function Home({ cart, setCart }) {
             </a>
 
 
-            <button className="secondary-btn">
+            {/* BECOME AN ARTISAN */}
 
+            <button
+              className="secondary-btn"
+              onClick={() => navigate('/artisan')}
+            >
               Become an Artisan
-
             </button>
 
           </div>
@@ -330,132 +332,173 @@ function Home({ cart, setCart }) {
 
       {/* ================= PRODUCTS ================= */}
 
-      {/* PRODUCTS */}
-<section className="products" id="products">
+      <section
+        className="products"
+        id="products"
+      >
 
-  <p className="section-label">
-    OUR COLLECTION
-  </p>
-
-  <h2>
-    Featured Products
-  </h2>
-
-  <div className="product-grid">
-
-    {/* CLAY VASE */}
-    <div className="product-card">
-
-      <div className="product-image">
-        <img
-          src="/images/clay-vase.jpg"
-          alt="Traditional Clay Vase"
-        />
-      </div>
-
-      <div className="product-info">
-
-        <p>Handmade Pottery</p>
-
-        <h3>Traditional Clay Vase</h3>
-
-        <strong>₹799</strong>
-
-        <button
-          className="primary-btn product-btn"
-          onClick={() =>
-            addToCart({
-              name: 'Traditional Clay Vase',
-              category: 'Handmade Pottery',
-              price: 799,
-              image: '/images/clay-vase.jpg'
-            })
-          }
-        >
-          Add to Cart 🛒
-        </button>
-
-      </div>
-
-    </div>
+        <p className="section-label">
+          OUR COLLECTION
+        </p>
 
 
-    {/* JUTE BAG */}
-    <div className="product-card">
-
-      <div className="product-image">
-        <img
-          src="/images/jute-bag.jpg"
-          alt="Artisan Jute Bag"
-        />
-      </div>
-
-      <div className="product-info">
-
-        <p>Handcrafted Fashion</p>
-
-        <h3>Artisan Jute Bag</h3>
-
-        <strong>₹599</strong>
-
-        <button
-          className="primary-btn product-btn"
-          onClick={() =>
-            addToCart({
-              name: 'Artisan Jute Bag',
-              category: 'Handcrafted Fashion',
-              price: 599,
-              image: '/images/jute-bag.jpg'
-            })
-          }
-        >
-          Add to Cart 🛒
-        </button>
-
-      </div>
-
-    </div>
+        <h2>
+          Featured Products
+        </h2>
 
 
-    {/* NECKLACE */}
-    <div className="product-card">
+        <div className="product-grid">
 
-      <div className="product-image">
-        <img
-          src="/images/traditional-necklace.jpg"
-          alt="Traditional Necklace"
-        />
-      </div>
 
-      <div className="product-info">
+          {/* CLAY VASE */}
 
-        <p>Handmade Jewelry</p>
+          <div className="product-card">
 
-        <h3>Traditional Necklace</h3>
+            <div className="product-image">
 
-        <strong>₹999</strong>
+              <img
+                src="/images/clay-vase.jpg"
+                alt="Traditional Clay Vase"
+              />
 
-        <button
-          className="primary-btn product-btn"
-          onClick={() =>
-            addToCart({
-              name: 'Traditional Necklace',
-              category: 'Handmade Jewelry',
-              price: 999,
-              image: '/images/traditional-necklace.jpg'
-            })
-          }
-        >
-          Add to Cart 🛒
-        </button>
+            </div>
 
-      </div>
 
-    </div>
+            <div className="product-info">
 
-  </div>
+              <p>
+                Handmade Pottery
+              </p>
 
-</section>
+              <h3>
+                Traditional Clay Vase
+              </h3>
+
+              <strong>
+                ₹799
+              </strong>
+
+
+              <button
+                className="primary-btn product-btn"
+                onClick={() =>
+                  addToCart({
+                    name: 'Traditional Clay Vase',
+                    category: 'Handmade Pottery',
+                    price: 799,
+                    image: '/images/clay-vase.jpg'
+                  })
+                }
+              >
+                Add to Cart 🛒
+              </button>
+
+            </div>
+
+          </div>
+
+
+          {/* JUTE BAG */}
+
+          <div className="product-card">
+
+            <div className="product-image">
+
+              <img
+                src="/images/jute-bag.jpg"
+                alt="Artisan Jute Bag"
+              />
+
+            </div>
+
+
+            <div className="product-info">
+
+              <p>
+                Handcrafted Fashion
+              </p>
+
+              <h3>
+                Artisan Jute Bag
+              </h3>
+
+              <strong>
+                ₹599
+              </strong>
+
+
+              <button
+                className="primary-btn product-btn"
+                onClick={() =>
+                  addToCart({
+                    name: 'Artisan Jute Bag',
+                    category: 'Handcrafted Fashion',
+                    price: 599,
+                    image: '/images/jute-bag.jpg'
+                  })
+                }
+              >
+                Add to Cart 🛒
+              </button>
+
+            </div>
+
+          </div>
+
+
+          {/* NECKLACE */}
+
+          <div className="product-card">
+
+            <div className="product-image">
+
+              <img
+                src="/images/traditional-necklace.jpg"
+                alt="Traditional Necklace"
+              />
+
+            </div>
+
+
+            <div className="product-info">
+
+              <p>
+                Handmade Jewelry
+              </p>
+
+              <h3>
+                Traditional Necklace
+              </h3>
+
+              <strong>
+                ₹999
+              </strong>
+
+
+              <button
+                className="primary-btn product-btn"
+                onClick={() =>
+                  addToCart({
+                    name: 'Traditional Necklace',
+                    category: 'Handmade Jewelry',
+                    price: 999,
+                    image: '/images/traditional-necklace.jpg'
+                  })
+                }
+              >
+                Add to Cart 🛒
+              </button>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
       {/* ================= ARTISAN ================= */}
 
       <section
@@ -476,19 +519,20 @@ function Home({ cart, setCart }) {
 
 
           <p>
-
             Turn your creativity into a business.
             Showcase your handmade products and
             reach customers beyond your local
             community.
-
           </p>
 
 
-          <button className="primary-btn">
+          {/* START SELLING */}
 
+          <button
+            className="primary-btn"
+            onClick={() => navigate('/artisan')}
+          >
             Start Selling →
-
           </button>
 
         </div>
@@ -516,15 +560,14 @@ function Home({ cart, setCart }) {
 
 
         <p className="copyright">
-
           © 2026 CraftConnect.
           Made for artisans ❤️
-
         </p>
 
       </footer>
 
     </div>
+
   )
 }
 
@@ -625,6 +668,14 @@ function App() {
       <Route
         path="/success"
         element={<Success />}
+      />
+
+
+      {/* ARTISAN */}
+
+      <Route
+        path="/artisan"
+        element={<Artisan />}
       />
 
 
